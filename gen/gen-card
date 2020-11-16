@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Requires xpm2html in PATH, details: https://github.com/koreyhinton/xpm2html
+
+if [ ! -f "$1" ]; then
+    exit 1;
+fi
+
+src_img_fn="${1}"  # ie: ../images/astronaut-space-suit-clipart.svg
+num_colors="$2"
+title="${3}"  # ie: Astronaut Moonshot Bingo Card
+: "${title:='Moonshot Bingo Card'}"
+height="${4}"
+# source image needs to be svg format
+
+#png_fn="${src_img_fn::-4}.png"
+#xpm_fn="${src_img_fn::-4}.xpm"
+#inkscape -z -w 68 -h 68 "$src_img_fn" -o "$xpm_fn"
+
+mogrify +antialias +channel  -colors $num_colors -format gif "$src_img_fn"
+gif_fn="${src_img_fn::-4}.gif"
+mogrify +antialias +channel  -colors $num_colors -geometry "x${height}" "${gif_fn}" # height=68
+mogrify +antialias +channel  -colors $num_colors -format xpm "${gif_fn}"
+
+mogrify +antialias +channel  -format xpm "${gif_fn}"
+xpm_fn="${gif_fn::-4}.xpm"
+
+# To see ascii art run:
+#     cat "$xpm_fn"
+
+# xpm to html conversion
+html=$(cat "${xpm_fn}" | xpm2html "$title")
+html=$(echo "$html" | sed 's/\/table>/\/table><script src="bingo.js"><\/script>/' | sed 's/\/STYLE>/\/STYLE><link rel="stylesheet" href="bingo.css">/')
+html_fn="${xpm_fn::-4}.html"
+echo "$html">"$html_fn"

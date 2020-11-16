@@ -1,0 +1,35 @@
+/* XPM */
+static char *rocket[] = {
+/* columns rows colors chars-per-pixel */
+"21 25 4 1 ",
+"  c #EC4EBD",
+". c #D84CDF",
+"X c #EA99EA",
+"o c #FEFBFE",
+/* pixels */
+"oooooooooX Xooooooooo",
+"ooooooooo   Xoooooooo",
+"oooooooo     oooooooo",
+"oooooooX     Xooooooo",
+"ooooooo .     ooooooo",
+"ooooooo   .   ooooooo",
+"ooooooX..     Xoooooo",
+"oooooo   .. .. oooooo",
+"oooooX ...X   .oooooo",
+"oooooX. XoXoX. Xooooo",
+"ooooo. .o...o ..ooooo",
+"ooooo...o . o...ooooo",
+"oooX... o...o....Xooo",
+"ooX.....XoXo......Xoo",
+"oo........X........oo",
+"oX..................o",
+"o...................X",
+"X...................X",
+"X....................",
+"...X.................",
+"..Xoo...........ooX..",
+"..ooooooooooooooooo..",
+".oooooooX...XooooooX.",
+"ooooooooo...ooooooooo",
+"oooooooooo.oooooooooo"
+};

@@ -1,0 +1,18 @@
+td {font-family: "Courier New";
+border-spacing:0;
+-webkit-border-horizontal-spacing: 0;
+vertical-align: baseline;
+font-size: 100%;
+border-collapse: none;
+border: 1px solid lightgrey;
+}
+
+td {
+font-family: "Courier New";
+font-size: 100%;
+width:5px;
+height:5px;
+}
+body { background-color: black;}
+/*table { cursor: pointer; }*/
+table { cursor: url("spray-can.png"), auto; }
