@@ -3,18 +3,18 @@ border-spacing:0;
 -webkit-border-horizontal-spacing: 0;
 vertical-align: baseline;
 font-size: 100%;
-border-collapse: none;
-border: 3px solid lightgrey;
+border-collapse: collapse;
+border: 0;
 }
 
 td {
 font-family: "Courier New";
 font-size: 100%;
-width:15px;
-height:15px;
+width:3px;
+height:3px;
 }
 body { background-color: white;}
 /*table { cursor: pointer; }*/
-table { cursor: url("spray-can.png"), auto; }
+table { cursor: default; }
 .dabbed{}
-iframe { width:300px;height:150px;}
+table { border: 5px solid black;}
