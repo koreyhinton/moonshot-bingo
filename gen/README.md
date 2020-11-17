@@ -6,10 +6,17 @@ Requires xpm2html in PATH, details: https://github.com/koreyhinton/xpm2html
 
 ```
 chmod +x gen-card
-./gen-card ../images/astronaut.svg 9 "Astronaut Bingo Card" 190
-./gen-card ../images/rocket.svg 9 "Rocket Bingo Card" 25
+./gen-card ../cards/astronaut.png 9 "Astronaut Bingo Card" 25
+./gen-card ../cards/rocket.svg 9 "Rocket Bingo Card" 25
+./gen-card ../cards/spaceship.png 9 "Spaceship Bingo Card" 25
 ```
 
-# Cursor Image
+# Image Credits
 
-https://www.freeiconspng.com/img/28871
+Astronaut: https://www.stockio.com/free-icon/astronaut-8
+
+Cursor Image: https://www.freeiconspng.com/img/28871
+
+Rocket: https://www.stockio.com/free-icon/rocket-gradient-filled
+
+Spaceship: https://www.needpix.com/photo/1667912/spaceship-cartoon-plane-rocket-space-galaxy-cosmos-technology-spacecraft
