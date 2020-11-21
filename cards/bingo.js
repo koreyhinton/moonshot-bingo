@@ -34,6 +34,7 @@ function gambit() {
             if (/*"+"==alien[y][x] &&*/els[i].classList.contains("c"+color) && !els[i].classList.contains("dabbed")) {
                 els[i].classList.add("dabbed")
                 els[i].style.borderColor = window.getComputedStyle(els[i]).backgroundColor;
+                bingoCheck()
             }
         }
         checker++;
@@ -59,6 +60,7 @@ function gambit2() {
             if (els[i].classList.contains("c"+color) && !els[i].classList.contains("dabbed")) {
                 els[i].classList.add("dabbed")
                 els[i].style.borderColor = window.getComputedStyle(els[i]).backgroundColor;
+                bingoCheck()
             }
         }
         checker++;
@@ -94,6 +96,7 @@ function deadBonus() {
                 if (y+1<grid[0].length && !grid[y+1][x].classList.contains("dabbed")){continue;}
                 grid[y][x].classList.add("dabbed")
                 grid[y][x].style.borderColor=window.getComputedStyle(grid[y][x]).backgroundColor;
+                bingoCheck()
                 return;
             }
         }
@@ -114,55 +117,11 @@ function rogueBonus() {
                 if (y+1<grid[0].length && grid[y+1][x].classList.contains("c"+color)){continue;}
                 grid[y][x].classList.add("dabbed")
                 grid[y][x].style.borderColor=window.getComputedStyle(grid[y][x]).backgroundColor;
+                bingoCheck()
                 return;
             }
         }
     }
-}
-
-function outline() {
-    var w=document.getElementsByTagName('TR')[0].children.length
-    var h=document.getElementsByTagName('TR').length
-    var els=document.getElementsByTagName('TD')
-
-    function calcTop() {
-        start=0
-        for (var i=0;i<(w*h-1);i++){
-            if(els[i].classList.contains("c"+color) && !els[i].classList.contains("dabbed")) { 
-                start=i; break;  
-            }
-        }
-        while (start % w !== 0) { start --; }
-        return start
-    }
-    function calcBottom() {
-        start=0
-        for (var i=w*h-1;i>(w*h-1-w);i--){
-            if(els[i].classList.contains("c"+color) && !els[i].classList.contains("dabbed")) {
-                start=i; break;
-            }
-        }
-        while (start % w !== 0) { start --; }
-        return start
-    }
-    start=calcTop()
-    var end=start+w
-    for (var i=start;i<end;i++){
-        el=els[i]
-        if (els[i].classList.contains("c"+color) && !el.classList.contains("dabbed")) {
-            el.classList.add("dabbed")
-            el.style.borderColor = window.getComputedStyle(el).backgroundColor;
-        }
-    }
-    start=calcBottom()
-    for (var i=start;i<start+w;i++) {
-        el=els[i]
-        if (!el.classList.contains("dabbed")) {
-            el.classList.add("dabbed")
-            el.style.borderColor = window.getComputedStyle(el).backgroundColor;
-        }
-    }
-    bingoCheck()
 }
 
 function allDabbed(color) {
