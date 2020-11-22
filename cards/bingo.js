@@ -199,7 +199,8 @@ function set_iframe(c) {
     urlParms="?thumbnail=t"
     if (c!=null) urlParms+="&color="+c
     ifrEl=document.getElementsByTagName('iframe')[0]
-    ifrEl.src=location.href+urlParms
+    //ifrEl.src=location.href+urlParms
+    ifrEl.contentWindow.location.replace(location.href+urlParms)
 }
 
 roundno=0
@@ -262,6 +263,15 @@ function play() {
 */
     intervalId=setInterval(tick, 1000)
     //intervalId=setInterval(next_color, 13000)
+    var audioEl=document.getElementsByTagName("audio")[0]
+    audioEl.addEventListener('timeupdate', function() {
+        var buffer = .44
+        if (this.currentTime > this.duration - buffer) {
+            this.currentTime = 0
+            this.play()
+        }
+    });
+    audioEl.play();
 }
 
 function tick() {
@@ -400,6 +410,24 @@ if (new URL(location.href).searchParams.get("thumbnail") == null) {
     tbl.style.margin='auto'
 
     next_color()
+
+    var audioctl=document.createElement("span")
+    var tracks={
+        "ufo": "Ufo Speeding.mp3",
+	"rocket": "blast_off.mp3",
+        "spaceship":"ufo Slowing.mp3",
+        "astronaut":"Super Game Music - Badass Space Explorer (Demo).mp3"
+    }
+    cardnm=window.location.href.substr(window.location.href.lastIndexOf('/') +1).replace(".html","")
+    var audio_fn="audio/"+tracks[cardnm]
+    var audiohtml=''+
+    '<audio controls preload="auto">'+
+    '    <source src="'+audio_fn+'" type="audio/mpeg">'+
+    '    Your browser does not support the audio element.'+
+	'</audio>'
+    audioctl.innerHTML=audiohtml
+    document.body.appendChild(audioctl)
+
 } else {
     linkEl=document.createElement("link")
     linkEl.type="text/css"
