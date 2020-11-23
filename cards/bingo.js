@@ -217,7 +217,15 @@ function spanStyle(el){
 
 function play() {
     playbtn=document.getElementById('playbtn')
-    playbtn.parentElement.removeChild(playbtn)
+    ff=document.createElement("button")
+    ff.innerHTML='<img src="icons/ff.png">'
+    ff.onclick=skip  //"skip()"
+    ff.id="skip"
+    ff.style.border="none"
+    ff.style.background="none"
+    ff.style.cursor="pointer"
+/*<button id="skip" onclick="skip()" style="border:none;background:none;cursor:pointer"></button>-->*/
+    playbtn.parentNode.replaceChild(ff, playbtn)
 
     // events
     els=document.getElementsByTagName("td")
@@ -342,7 +350,7 @@ function round() {
         roundno += 1
         if (roundno==1) {
             divEl=document.createElement("div")
-            divEl.innerHTML=caption("<button onclick='play()' id='playbtn'>Play</button>")
+            divEl.innerHTML=caption("<button onclick='play()' id='playbtn' style='border:none;background:none;cursor:pointer'><img src='icons/play.png'></button>")
             divEl.style.padding = "10px"
             divEl.style.textAlign="center"
             //document.body.insertBefore(divEl, document.getElementsByTagName('iframe')[0].nextSibling)
@@ -352,12 +360,14 @@ function round() {
                 span.style.textAlign="center"
                 span.innerHTML='<p><label for="paintprog">Paint: </label><progress id="paintprog" value="0" max="100"> 0% </progress>'+
                     '&nbsp;&nbsp;&nbsp;&nbsp;<label for="bonusprog">Bonus: </label><progress id="bonusprog" value="0" max="100"> 0% </progress>'+
-                    '&nbsp;<button id="skip" onclick="skip()">&gt;&gt;</button><br/></p>'  //onclick="document.getElementById(\'paintprog\').value=100">&gt;&gt;</button><br/></p>'//requeue(speedReQ);this.innerHTML=speedReQ[0]+\'x\'
+                    '&nbsp;<br/></p>'  //onclick="document.getElementById(\'paintprog\').value=100">&gt;&gt;</button><br/></p>'//requeue(speedReQ);this.innerHTML=speedReQ[0]+\'x\'
                 document.body.insertBefore(span, divEl.nextSibling)
+
             //}
         } else {
-            divEl=document.getElementsByTagName("div")[0]
-            divEl.innerHTML=caption("")
+            //divEl=document.getElementsByTagName("div")[0]
+            //divEl.innerHTML=caption("")
+            document.getElementsByTagName("h2")[0].innerHTML='Round '+roundno
         }
 }
 
@@ -372,7 +382,7 @@ function next_color() {
     if (color==0) {
         round()
     } else {
-        document.getElementsByTagName("div")[0].innerHTML = caption("")
+        document.getElementsByTagName("h2")[0].innerHTML='Round '+roundno  //document.getElementsByTagName("div")[0].innerHTML = caption("")
     }
     set_iframe('c'+color);
     //document.body.style.backgroundColor = window.getComputedStyle(els[0]).backgroundColor;

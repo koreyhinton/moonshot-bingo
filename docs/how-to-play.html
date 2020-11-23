@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-11-23 Mon 07:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to play Moonshot Bingo</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style>*{font-family: Georgia,serif !important}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">How to play Moonshot Bingo</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2fcfe69">1. How to start the game</a></li>
+<li><a href="#orgdc714d5">2. Gameplay</a></li>
+<li><a href="#org94ae075">3. Bonuses and Gambits</a>
+<ul>
+<li><a href="#orgd3c1726">3.1. Winner's Bonuses</a>
+<ul>
+<li><a href="#org663ab6a">3.1.1. Count Check Bonus</a></li>
+<li><a href="#orgd8a99e1">3.1.2. Rogue Pixel Bonus</a></li>
+<li><a href="#org1272ef0">3.1.3. Dead Pixel Bonus</a></li>
+</ul>
+</li>
+<li><a href="#org4b707da">3.2. Loser's Gambit</a>
+<ul>
+<li><a href="#org82f9283">3.2.1. Grid Gambit</a></li>
+<li><a href="#org9b711ad">3.2.2. Ruler's Gambit</a></li>
+</ul>
+</li>
+<li><a href="#org11c2f2c">3.3. Strategy Hints</a></li>
+</ul>
+</li>
+<li><a href="#org60e5230">4. Rounds, Colors, Phases</a></li>
+<li><a href="#org35d3fbd">5. Skip Button</a></li>
+<li><a href="#orgfc1ee1f">6. Volume Controls</a></li>
+<li><a href="#org73beb57">7. Game Off 2020</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2fcfe69" class="outline-2">
+<h2 id="org2fcfe69"><span class="section-number-2">1</span> How to start the game</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Click the play button on the index.html page (moonshot bingo game's home page) that is next to your desired image.
+Next click the play button on the card page.
+</p>
+
+<p>
+<a href="../index.html">Take me back to the game</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdc714d5" class="outline-2">
+<h2 id="orgdc714d5"><span class="section-number-2">2</span> Gameplay</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The gameplay works like blackout color bingo, with a few new twists (see <a href="#org94ae075">3</a>).
+The current color will be displayed with a mini image showing the locations of the pixels for that color.
+</p>
+
+<p>
+Hover over the pixels of that color in the enlarged image to paint the borders of those pixels, so they connect to the squares around them.
+You can do this during the "Paint" phase of the current color and during the "Bonus" phase as well of that color.
+After the bonus phase it will move to the next color.
+If you are not able to fill in every color you can try again in the next round.
+</p>
+
+<p>
+During the bonus phase you have to be quick but you can use bonuses and gambits to try and improve your situation for that color.
+See <a href="#org94ae075">3</a> to learn how the bonuses and gambits work.
+</p>
+
+<p>
+How well you score will be determined by what round and color you are on upon completing all the pixels.
+If you are competing against someone else's score, take note of which Round # and Color # you are on to compare scores.
+You could also modify the rules and compare the progress bars of the paint/bonus phases when round # and color # were the same.
+You can take note of the position of the highlighted cell in the pixel grid below the mini image to see which color you ended on. And the round number is displayed at the top of the card page.
+</p>
+
+<p>
+Click the Bingo button when you are done to stop the time. The bingo button will appear only if you have really completed the full image.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org94ae075" class="outline-2">
+<h2 id="org94ae075"><span class="section-number-2">3</span> Bonuses and Gambits</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+After about 13 seconds of playing the current color the bonus and gambit buttons will become activated.
+You may use these to try and improve your situation.
+You can also opt out of using these and just continue paint.
+</p>
+
+<p>
+The bonus phase will last the same amount of time as the paint phase (13 seconds).
+Use the bonus and loser gambit buttons as many times as you'd like during the bonus phase.
+</p>
+</div>
+
+<div id="outline-container-orgd3c1726" class="outline-3">
+<h3 id="orgd3c1726"><span class="section-number-3">3.1</span> Winner's Bonuses</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+If you are close to completing all the pixels for the current color you can use Winner's Bonus options to help you finalize the rest of the colors.
+These options show up during the 2nd (bonus) phase for each color.
+</p>
+</div>
+
+
+<div id="outline-container-org663ab6a" class="outline-4">
+<h4 id="org663ab6a"><span class="section-number-4">3.1.1</span> Count Check Bonus</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Use the count button to see how many pixels you have left for that color. If you go back to painting you need to click this button again to see the updated stat. This can only be used in the bonus phase.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd8a99e1" class="outline-4">
+<h4 id="orgd8a99e1"><span class="section-number-4">3.1.2</span> Rogue Pixel Bonus</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+A rogue pixel is one that is not connected (connected meaning N,S,W,E directions) to another of its color.
+The rogue pixel bonus button will only fill in one pixel at a time if there is one off by itself.
+Click this button as much as you'd like during the bonus round.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1272ef0" class="outline-4">
+<h4 id="org1272ef0"><span class="section-number-4">3.1.3</span> Dead Pixel Bonus</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+A dead pixel is a pixel where neighboring (in N,S,W,E directions) pixels are filled in but that cell is not, regardless of what colors surround it.
+These can be hard to find as it only has 1 light gray outline to show that it isn't filled in.
+Use this button as much as you'd like during the bonus round to fill in dead pixels one at a time.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4b707da" class="outline-3">
+<h3 id="org4b707da"><span class="section-number-3">3.2</span> Loser's Gambit</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+If you don't feel good about your progress when you enter the bonus phase for a color you can trade in all that is currently complete for that color (includes previous rounds) and exchange them for automatic pixel removal.
+You will gamble away all of your current progress for that color and then eliminate cells according to the pattern of the gambit.
+Take into account that after the gambit you will have limited time to re-paint afterwards if you are trying to complete it all in that 1 round.
+</p>
+</div>
+
+<div id="outline-container-org82f9283" class="outline-4">
+<h4 id="org82f9283"><span class="section-number-4">3.2.1</span> Grid Gambit</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+The grid gambit button will allow you to trade in current progress and then will automatically fill in according to a grid pattern for the current color.
+If you feel you'd be quick in shake painting this could require less time than ruler's gambit.
+Be sure to be fast to finish off the remaining pixels.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9b711ad" class="outline-4">
+<h4 id="org9b711ad"><span class="section-number-4">3.2.2</span> Ruler's Gambit</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+The ruler gambit button will allow you to trade in current progress and then will automatically fill in according to a ruler pattern for the current color.
+If you have feel you'd have a steady hand to keep the cursor in a straight line the ruler gambit will require less time hunting for pixels than grid gambit.
+Be sure to be fast to finish off the remaining pixels.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org11c2f2c" class="outline-3">
+<h3 id="org11c2f2c"><span class="section-number-3">3.3</span> Strategy Hints</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Use loser gambits either when you struggled to get many pixels completed or when you have too many pixels to complete in time.
+If you are filling in the large background color you can just skip to the bonus phase (or just wait and rest your hand) and use a gambit, then quickly try to complete with better results than if you painted the whole time.
+</p>
+
+<p>
+If you are close to completing the pixels and have difficulty finding the last ones use the winner bonuses to try to get them all finished off.
+A rogue or dead pixel may be very hard to see if it blends in with the pixels around it, so a winner's bonus can be crucial in helping reduce the number of rounds you have where you are just randomly painting in hopes you got them all.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org60e5230" class="outline-2">
+<h2 id="org60e5230"><span class="section-number-2">4</span> Rounds, Colors, Phases</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A round consists of all the colors. Once you've been through all of the colors you will be starting round 2. The fewer rounds the higher your score is. 1st place completes it in the 1st round.
+</p>
+
+<p>
+The current color is a sub item of the round and it is broken into 2 phases: paint phase and bonus phase. (See <a href="#org94ae075">3</a>)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org35d3fbd" class="outline-2">
+<h2 id="org35d3fbd"><span class="section-number-2">5</span> Skip Button</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+There is a skip button that can be used to fast-forward to the next phase.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfc1ee1f" class="outline-2">
+<h2 id="orgfc1ee1f"><span class="section-number-2">6</span> Volume Controls</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Look for the volume controls on the card page. Upon clicking the game's play button the background music will play, to stop that behavior you can use the audio controls to pause or mute the music.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org73beb57" class="outline-2">
+<h2 id="org73beb57"><span class="section-number-2">7</span> Game Off 2020</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Copyright (C) Korey Hinton 2020. November 2020 Game Off submission.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2020-11-23 Mon 07:19</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
