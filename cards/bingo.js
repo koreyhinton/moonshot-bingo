@@ -229,7 +229,7 @@ numcolors=-1
 function spanStyle(el){
     el.style.fontSize="12px"
     el.style.fontFamily = "Georgia,serif"
-    el.style.border = "3px solid lightgrey"
+    el.style.border = "none"//"3px solid lightgrey"
     el.style.padding ="8px"
     el.style.textAlign = "center"
 }
@@ -251,32 +251,24 @@ function play() {
     for (var i=0; i<els.length; i++) {
         els[i].onmouseover = paint;
     }
-
-    winspan=document.createElement("span")
-    winspan.innerHTML="<B>Winner's Bonus</B><BR/><!--<I>&check; 2+ color streak</I>--><P><B>&ndash;&ndash;</B></P><BR/><P><button id='win0' class='win' onclick='count(this)' disabled>Count: ?</button></P><BR/><P><button id='win1' class='win' onclick='rogueBonus()' disabled>Rogue Pixel</button></P><BR/><P><button id='win2' class='win' onclick='deadBonus()' disabled>Dead Pixel</button></P></BR>"
-    winspan.style.position = "fixed"
-    winspan.style.top = "0px"
-    winspan.style.right = "0px"
-    winspan.style.backgroundColor="lightblue"
+    var winspan=document.createElement("div")
+    var imgurl="'icons/grid.png'"
+    var loseHtml="<span><B>Loser's Gambit</B>: <button id='lose1' class='lose' onclick='gambit()' disabled><img src='icons/grid.png'></button>"+
+        "<button onclick='gambit2()' class='lose' disabled><img src='icons/ruler.png'></button></span>"
+    winspan.innerHTML="<br/><br/><div style='display:inline-block;width:380px;background-color:white'>"+"<span><B>Winner's Bonus: </B><!--<I>&check; 2+ color streak</I>--><button id='win0' class='win' onclick='count(this)' disabled>Count: ?</button><button id='win1' class='win' onclick='rogueBonus()' disabled>Rogue Pixel</button><button id='win2' class='win' onclick='deadBonus()' disabled>Dead Pixel</button></span><br/><br/>"+loseHtml+"</div>"
+    //winspan.style.position = "fixed"
+    //winspan.style.float="right"
+    //winspan.style.top = "0px"
+    //winspan.style.right = "0px"
+    winspan.style.textAlign="center"
+    //winspan.style.backgroundColor="lightblue"
     winspan.style.color="black"
-    winspan.style.width="100px"
+    winspan.style.width="100%"//"100px"
     winspan.style.height="200px"
     spanStyle(winspan)
-    document.body.appendChild(winspan)
-
-    var imgurl="'icons/grid.png'"
-    losespan=document.createElement("span")
-    losespan.innerHTML="<B>Loser's Gambit</B><BR/><!--&#x274E; <I>color before</I>--><P><B>&ndash;&ndash;</B></P><BR/><P><button id='lose1' class='lose' onclick='gambit()' disabled><img src='icons/grid.png'></button></P>" //style=\"background:url("+imgurl+")\"
-    losespan.innerHTML+="<BR/><P><button onclick='gambit2()' class='lose' disabled><img src='icons/ruler.png'></button></P>"
-    losespan.style.position = "fixed"
-    losespan.style.top = "200px"
-    losespan.style.right = "0px"
-    losespan.style.backgroundColor="pink"
-    losespan.style.color="white"
-    losespan.style.width="100px"
-    losespan.style.height="200px"
-    spanStyle(losespan)
-    document.body.appendChild(losespan)
+    var tbl=document.getElementsByTagName("table")[0]
+    tbl.parentNode.insertBefore(winspan,tbl.nextSibling)
+    //document.body.appendChild(winspan)
     
 /*
     progress=document.createElement("span")
