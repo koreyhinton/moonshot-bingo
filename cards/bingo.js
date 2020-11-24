@@ -38,9 +38,10 @@ function gambit() {
         //if (i % w == x && j==y) {
         if (checker%2==0 || j %2==0) {
             if (/*"+"==alien[y][x] &&*/els[i].classList.contains("c"+color) && !els[i].classList.contains("dabbed")) {
-                els[i].classList.add("dabbed")
+                paint(els[i], 'el')
+                /*els[i].classList.add("dabbed")
                 els[i].style.borderColor = window.getComputedStyle(els[i]).backgroundColor;
-                bingoCheck()
+                bingoCheck()*/
             }
         }
         checker++;
@@ -64,9 +65,10 @@ function gambit2() {
         //if (i % w == x && j==y) {
         if (checker%3<2 /*|| j %3<2*/) {
             if (els[i].classList.contains("c"+color) && !els[i].classList.contains("dabbed")) {
-                els[i].classList.add("dabbed")
+                paint(els[i], 'el')
+                /*els[i].classList.add("dabbed")
                 els[i].style.borderColor = window.getComputedStyle(els[i]).backgroundColor;
-                bingoCheck()
+                bingoCheck()*/
             }
         }
         checker++;
@@ -100,9 +102,10 @@ function deadBonus() {
                 if (x+1<grid[0].length && !grid[y][x+1].classList.contains("dabbed")){continue;}
                 if (y-1>-1 && !grid[y-1][x].classList.contains("dabbed")){continue;}
                 if (y+1<grid[0].length && !grid[y+1][x].classList.contains("dabbed")){continue;}
-                grid[y][x].classList.add("dabbed")
+                paint(grid[y][x],'el')
+                /*grid[y][x].classList.add("dabbed")
                 grid[y][x].style.borderColor=window.getComputedStyle(grid[y][x]).backgroundColor;
-                bingoCheck()
+                bingoCheck()*/
                 return;
             }
         }
@@ -121,9 +124,10 @@ function rogueBonus() {
                 if (x+1<grid[0].length && grid[y][x+1].classList.contains("c"+color)){continue;}
                 if (y-1>-1 && grid[y-1][x].classList.contains("c"+color)){continue;}
                 if (y+1<grid[0].length && grid[y+1][x].classList.contains("c"+color)){continue;}
-                grid[y][x].classList.add("dabbed")
+                paint(grid[y][x], 'el')
+                /*grid[y][x].classList.add("dabbed")
                 grid[y][x].style.borderColor=window.getComputedStyle(grid[y][x]).backgroundColor;
-                bingoCheck()
+                bingoCheck()*/
                 return;
             }
         }
@@ -166,11 +170,12 @@ function count(el) {
     el.innerHTML="Count: "+cnt
 }
 
-function paint(e) {
-    c="c"+color
-    el=e.target
+// references: deadBonus, gambit, gambit2, play, rogueBonus
+function paint(e, eType='ev') {
+    c="c"+color;
+    el=(eType==='el')?e:e.target//(e instanceof Event)?e.target:e;
     if (el.classList.contains(c)) {
-       el=e.target;
+       //el=e.target;
        el.style.borderColor = window.getComputedStyle(el).backgroundColor;
        if (!el.classList.contains("dabbed")) {
            el.classList.add("dabbed")
