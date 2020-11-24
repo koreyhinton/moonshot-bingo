@@ -153,8 +153,13 @@ function bingoCheck() {
     }
     bingo=true
     clearInterval(intervalId);
-    document.getElementsByTagName("div")[0].innerHTML=caption("<button onclick='click_bingo(this)'>Bingo</button>")
     document.getElementById("skip").disabled=true
+    document.getElementsByTagName("div")[0].innerHTML=caption("<button onclick='click_bingo(this)'>Bingo</button>")
+    var loseBtns=document.getElementsByClassName("lose")
+    var winBtns=document.getElementsByClassName("win")
+    for (var i=0;i<loseBtns.length;i++){loseBtns[i].disabled=true}
+    for (var i=0;i<winBtns.length;i++){winBtns[i].disabled=true}
+
     //alert("BINGO!!! Round="+roundno)
 }
 
