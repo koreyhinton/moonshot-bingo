@@ -6,6 +6,12 @@ function requeue(q) {
     q.push(q.shift())
 }
 
+function lightgrey(r,g,b) {
+    r=parseInt(r);g=parseInt(g);b=parseInt(b);
+    threshold=8;
+    return (Math.abs(211-r)<threshold && Math.abs(211-g)<threshold && Math.abs(211-b)<threshold)
+}
+
 function gambit_clear() {
     var els=document.getElementsByTagName('TD')
     for (var i=0; i<els.length; i++) {
@@ -168,6 +174,9 @@ function paint(e) {
        el.style.borderColor = window.getComputedStyle(el).backgroundColor;
        if (!el.classList.contains("dabbed")) {
            el.classList.add("dabbed")
+           if (hiddenColors.includes(c)) {
+               el.innerHTML=" "
+           }
            if (!bingo) {
                bingoCheck()
            }
@@ -344,6 +353,7 @@ winstreak=0
 losestreak=0
 winbonus=0
 losebonus=0
+hiddenColors=[]
 
 function round() {
         // start of round:
@@ -438,6 +448,24 @@ if (new URL(location.href).searchParams.get("thumbnail") == null) {
     audioctl.innerHTML=audiohtml
     document.body.appendChild(audioctl)
 
+    // edge case: pixel background color is light grey
+    for (var i=0; i<numcolors;i++){
+        var rgb=window.getComputedStyle(document.getElementsByClassName("c"+i)[0]).backgroundColor
+        var rgb=rgb.match(/\d+/g)
+        if (lightgrey(rgb[0],rgb[1],rgb[2])) {
+            var els=document.getElementsByClassName("c"+i)
+            for (var j=0;j<els.length;j++){
+                els[j].style.color="black"
+                els[j].style.textAlign="center"
+                els[j].style.fontSize="10px"
+                els[j].style.verticalAlign="middle"
+                els[j].style.display="table-cell"
+                els[j].innerHTML="?"
+                hiddenColors.push("c"+i)
+            }
+        }
+    }
+
 } else {
     linkEl=document.createElement("link")
     linkEl.type="text/css"
@@ -473,4 +501,20 @@ if (new URL(location.href).searchParams.get("thumbnail") == null) {
     chart.id="chart"
     chart.innerHTML="<tr>"+tdhd+"</tr>"//<tr>"+tdbd+"</tr>"
     document.body.appendChild(chart)
+
+    if (color!=null) {
+        var rgb=window.getComputedStyle(document.getElementsByClassName(color)[0]).backgroundColor
+        var rgb=rgb.match(/\d+/g)
+        if (lightgrey(rgb[0],rgb[1],rgb[2])) {
+            var a=document.createElement("a")
+            a.innerHTML="?"
+            a.style.padding="10px"
+            a.style.fontSize="58px"
+            a.style.color="black"
+            a.style.position="absolute"
+            a.style.top="0px"
+            a.style.left="0px"
+            document.body.appendChild(a)
+        }
+    }
 }
