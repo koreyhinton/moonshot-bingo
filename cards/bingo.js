@@ -18,10 +18,15 @@ function gambit_clear() {
         if (els[i].classList.contains('c'+color) && els[i].classList.contains("dabbed")) {
             els[i].classList.remove('dabbed')
             els[i].style.borderColor='lightgrey'
+           if (hiddenColors.includes('c'+color)) {
+               els[i].innerHTML="?"
+           }
+
         }
     }
 }
 
+//Spots
 function gambit() {
     gambit_clear();
     var w=document.getElementsByTagName('TR')[0].children.length
@@ -48,6 +53,7 @@ function gambit() {
     }
 }
 
+//Pillars
 function gambit2() {
     gambit_clear()
     var w=document.getElementsByTagName('TR')[0].children.length
@@ -60,10 +66,10 @@ function gambit2() {
     var j=-1;
     checker=0
     for (var i=0;i<els.length;i++) {
-        if (i % w == 0) { j++ }
+        if (i % w == 0) { j++; checker=0 }
         //if ((i%w)>=x && (i%w)<=(x+dim) && j>=y && j<=(y+dim)){
         //if (i % w == x && j==y) {
-        if (checker%3<2 /*|| j %3<2*/) {
+        if (checker%2==0){//checker%3<2 /*|| j %3<2*/) {
             if (els[i].classList.contains("c"+color) && !els[i].classList.contains("dabbed")) {
                 paint(els[i], 'el')
                 /*els[i].classList.add("dabbed")
@@ -253,9 +259,9 @@ function play() {
     }
     var winspan=document.createElement("div")
     var imgurl="'icons/grid.png'"
-    var loseHtml="<span><B>Loser's Gambit</B>: <button id='lose1' class='lose' onclick='gambit()' disabled><img src='icons/grid.png'></button>"+
-        "<button onclick='gambit2()' class='lose' disabled><img src='icons/ruler.png'></button></span>"
-    winspan.innerHTML="<br/><br/><div style='display:inline-block;width:380px;background-color:white'>"+"<span><B>Winner's Bonus: </B><!--<I>&check; 2+ color streak</I>--><button id='win0' class='win' onclick='count(this)' disabled>Count: ?</button><button id='win1' class='win' onclick='rogueBonus()' disabled>Rogue Pixel</button><button id='win2' class='win' onclick='deadBonus()' disabled>Dead Pixel</button></span><br/><br/>"+loseHtml+"</div>"
+    var loseHtml="<span class='deactivated'><B>Loser's Gambit</B>: <button id='lose1' class='lose' onclick='gambit()' disabled>Trade for Spots</button>"+
+        "<button onclick='gambit2()' class='lose' disabled>Trade for Pillars</button></span>"
+    winspan.innerHTML="<br/><br/><div style='display:inline-block;width:400px;background-color:white'>"+"<span class='deactivated'><B>Winner's Bonus: </B><!--<I>&check; 2+ color streak</I>--><button id='win0' class='win' onclick='count(this)' disabled>Count: ?</button><button id='win1' class='win' onclick='rogueBonus()' disabled>Rogue Pixel</button><button id='win2' class='win' onclick='deadBonus()' disabled>Dead Pixel</button></span><br/><br/>"+loseHtml+"</div>"
     //winspan.style.position = "fixed"
     //winspan.style.float="right"
     //winspan.style.top = "0px"
@@ -301,8 +307,14 @@ function tick() {
         progress.value=0
         var loseBtns=document.getElementsByClassName("lose")
         var winBtns=document.getElementsByClassName("win")
+        var activatedText=document.getElementsByClassName("activated")  //https://stackoverflow.com/a/33452345
         for (var i=0;i<loseBtns.length;i++){loseBtns[i].disabled=true}
         for (var i=0;i<winBtns.length;i++){winBtns[i].disabled=true}
+        while (activatedText.length){
+            activatedText[0].classList.replace("activated", "deactivated")
+            //winLoseText[i].classList.remove("activated")
+            //winLoseText[i].classList.add("deactivated")
+        }
         next_color()
     }
     else if (progress.value>=100){
@@ -313,8 +325,13 @@ function tick() {
         //if (phase=="Paint") { next_color()  }
         var loseBtns=document.getElementsByClassName("lose")
         var winBtns=document.getElementsByClassName("win")
+        var deactivatedText=document.getElementsByClassName("deactivated")  //https://stackoverflow.com/a/33452345
         for (var i=0;i<loseBtns.length;i++){loseBtns[i].disabled=false}
         for (var i=0;i<winBtns.length;i++){winBtns[i].disabled=false}
+        while (deactivatedText.length) {
+            deactivatedText[0].classList.replace("deactivated", "activated")//.remove("deactivated")
+            //winLoseText[i].classList.add("activated")
+        }
         bp.value+=(speedReQ[0] * Math.ceil(0.13*60.0))
     } else {
         progress.value+=(speedReQ[0] * Math.ceil(0.13*60.0))//(Math.floor(100/13))

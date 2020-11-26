@@ -20,3 +20,31 @@ table { cursor: url("spray-can.png"), auto; }
 iframe { width:380px;height:120px;}
 .bonusProgress {}
 .paintProgress{}
+button.win,button.lose{
+    border-radius:14px;
+    background-color:#ececec;
+    border: 2px solid #4b4b4b;
+    padding-top:4px;
+    padding-bottom:4px;
+    padding-left:14px;
+    padding-right:14px;
+    margin-left:2px;
+    -webkit-appearance: none;
+    border-style: solid;
+}
+
+button.win:disabled,button.lose:disabled{
+    background-color:#f5f5f5;
+    color: #848484;
+}
+.deactivated{
+    color: #848484;
+}
+.activated{
+    color:black;
+}
+
+button.win:focus,button.lose:focus{
+    outline: none;
+    box-shadow: none;
+}
