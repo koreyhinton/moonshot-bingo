@@ -17,7 +17,7 @@ body { background-color: white;}
 /*table { cursor: pointer; }*/
 table { cursor: url("spray-can.png"), auto; }
 .dabbed{}
-iframe { width:380px;height:120px;}
+iframe { width:380px;height:130px; }
 .bonusProgress {}
 .paintProgress{}
 button.win,button.lose{
