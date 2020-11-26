@@ -1,5 +1,9 @@
 bingo=false
 
+var polyfill=document.createElement('script');
+polyfill.src="url-polyfill.min.js"
+document.head.appendChild(polyfill)
+
 speedReQ=[1,2,3]
 phaseReQ=["Paint","Bonus"]
 function requeue(q) {
@@ -18,7 +22,7 @@ function gambit_clear() {
         if (els[i].classList.contains('c'+color) && els[i].classList.contains("dabbed")) {
             els[i].classList.remove('dabbed')
             els[i].style.borderColor='lightgrey'
-           if (hiddenColors.includes('c'+color)) {
+           if (arr_includes(hiddenColors, 'c'+color)) {//hiddenColors.includes('c'+color)) {
                els[i].innerHTML="?"
            }
 
@@ -182,15 +186,16 @@ function count(el) {
 }
 
 // references: deadBonus, gambit, gambit2, play, rogueBonus
-function paint(e, eType='ev') {
+function paint(e, eType) {//, eType='ev') {
     c="c"+color;
+    if (typeof eType === undefined) eType='ev';
     el=(eType==='el')?e:e.target//(e instanceof Event)?e.target:e;
     if (el.classList.contains(c)) {
        //el=e.target;
        el.style.borderColor = window.getComputedStyle(el).backgroundColor;
        if (!el.classList.contains("dabbed")) {
            el.classList.add("dabbed")
-           if (hiddenColors.includes(c)) {
+           if (arr_includes(hiddenColors, c)) {//hiddenColors.includes(c)) {
                el.innerHTML=" "
            }
            if (!bingo) {
@@ -311,7 +316,7 @@ function tick() {
         for (var i=0;i<loseBtns.length;i++){loseBtns[i].disabled=true}
         for (var i=0;i<winBtns.length;i++){winBtns[i].disabled=true}
         while (activatedText.length){
-            activatedText[0].classList.replace("activated", "deactivated")
+            node_class_replace(activatedText[0], "activated", "deactivated")//activatedText[0].classList.replace("activated", "deactivated")
             //winLoseText[i].classList.remove("activated")
             //winLoseText[i].classList.add("deactivated")
         }
@@ -329,7 +334,7 @@ function tick() {
         for (var i=0;i<loseBtns.length;i++){loseBtns[i].disabled=false}
         for (var i=0;i<winBtns.length;i++){winBtns[i].disabled=false}
         while (deactivatedText.length) {
-            deactivatedText[0].classList.replace("deactivated", "activated")//.remove("deactivated")
+            node_class_replace(deactivatedText[0], "deactivated", "activated")//deactivatedText[0].classList.replace("deactivated", "activated")//.remove("deactivated")
             //winLoseText[i].classList.add("activated")
         }
         bp.value+=(speedReQ[0] * Math.ceil(0.13*60.0))
@@ -355,7 +360,7 @@ function caption(actionBtnHtml) {
         for (var i=0; i<els.length; i++) {
             var classes=els[i].classList
             for (var j=0;j<classes.length; j++) {
-                if (classes[0].startsWith("c")) {
+                if (classes[0][0]=="c") {//(classes[0].startsWith("c")) {
                     test=parseInt(classes[0].replace("c",""))
                     if (test > maxcolor) {
                         maxcolor=test
@@ -374,6 +379,25 @@ winbonus=0
 losebonus=0
 hiddenColors=[]
 
+/////Function replacements for cross-browser compatibility:
+///////document.body.prepend(node)
+function body_prepend(el) {
+    document.body.insertBefore(el, document.body.childNodes[0])
+}
+///////arr.includes(str)
+function arr_includes(arr, incl){
+    for (var i=0;i<arr.length;i++) {
+        if (arr[i]==incl) return true;
+    }
+    return false;
+}
+///////node.classList.replace(old, new)
+function node_class_replace(node, oldC, newC){
+    node.classList.remove(oldC)
+    node.classList.add(newC)
+}
+/////End Function replacements
+
 function round() {
         // start of round:
         roundno += 1
@@ -383,7 +407,7 @@ function round() {
             divEl.style.padding = "10px"
             divEl.style.textAlign="center"
             //document.body.insertBefore(divEl, document.getElementsByTagName('iframe')[0].nextSibling)
-            document.body.prepend(divEl)
+            /*document.body.*/body_prepend(divEl)
             //if (!bingo) {
                 var span=document.createElement("span")
                 span.style.textAlign="center"
@@ -436,13 +460,14 @@ function next_color() {
     if (cntBtn!=null){cntBtn.innerHTML="Count: ?"}
 }
 
-if (new URL(location.href).searchParams.get("thumbnail") == null) {
+document.addEventListener('DOMContentLoaded', function() {
+if (new URL(location.href)/*URLSearchParams(location.href)*/.searchParams.get("thumbnail") == null) {
     // iframe
     iframe = document.createElement('iframe')
     iframe.style.display='block'
     iframe.style.margin='0 auto'
     //iframe.src=location.href+"?thumbnail=t"
-    document.body.prepend(iframe)//.appendChild(iframe)
+    /*document.body.*/body_prepend(iframe)//.appendChild(iframe)
 
     tbl=document.getElementsByTagName("table")[0]
     //tbl.style.display='block'
@@ -537,3 +562,4 @@ if (new URL(location.href).searchParams.get("thumbnail") == null) {
         }
     }
 }
+});
