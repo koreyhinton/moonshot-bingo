@@ -164,7 +164,7 @@ function bingoCheck() {
     bingo=true
     clearInterval(intervalId);
     document.getElementById("skip").disabled=true
-    document.getElementsByTagName("div")[0].innerHTML=caption("<button onclick='click_bingo(this)'>Bingo</button>")
+    document.getElementsByTagName("div")[0].innerHTML=caption("<button class='bingo' onclick='click_bingo(this)'><a class='bigb'>B</a><a class='bigi'>i</a><a class='bign'>n</a><a class='bigg'>g</a><a class='bigo'>o</a></button>")
     var loseBtns=document.getElementsByClassName("lose")
     var winBtns=document.getElementsByClassName("win")
     for (var i=0;i<loseBtns.length;i++){loseBtns[i].disabled=true}
@@ -248,7 +248,7 @@ function spanStyle(el){
 function play() {
     playbtn=document.getElementById('playbtn')
     ff=document.createElement("button")
-    ff.innerHTML='<img src="icons/ff.png">'
+    ff.innerHTML='<img src="icons/ff.png" alt="fast-forward">'
     ff.onclick=skip  //"skip()"
     ff.id="skip"
     ff.style.border="none"
@@ -352,7 +352,9 @@ function skip() {
     }
 }
 
-
+function round_caption() {
+    return "<a class='bigletter2'>R</a>ound <a class='bigletter2'>#" +roundno + "</a>"
+}
 function caption(actionBtnHtml) {
     if (numcolors < 0) {
         els=document.getElementsByTagName("td")
@@ -370,7 +372,7 @@ function caption(actionBtnHtml) {
         }
         numcolors=maxcolor+1
     }
-    return "<h1>MOONSHOT BINGO</h1><h2>Round " +roundno + "</h2>" + /*" (Color "+(color+1) + " of "+(numcolors)+") "+*/actionBtnHtml
+    return "<h1><a class='bigletter'>M</a>oonshot <a class='bigb'>B<a class='bigi'>i</a><a class='bign'>n</a><a class='bigg'>g</a><a class='bigo'>o</a></a></h1><h2>"+round_caption()+"</h2>" + /*" (Color "+(color+1) + " of "+(numcolors)+") "+*/actionBtnHtml
 }
 
 winstreak=0
@@ -403,13 +405,13 @@ function round() {
         roundno += 1
         if (roundno==1) {
             divEl=document.createElement("div")
-            divEl.innerHTML=caption("<button onclick='play()' id='playbtn' style='border:none;background:none;cursor:pointer'><img src='icons/play.png'></button>")
+            divEl.innerHTML=caption("<button onclick='play()' id='playbtn' style='border:none;background:none;cursor:pointer'><img src='icons/play.png' alt='play'></button>")
             divEl.style.padding = "10px"
             divEl.style.textAlign="center"
             //document.body.insertBefore(divEl, document.getElementsByTagName('iframe')[0].nextSibling)
             /*document.body.*/body_prepend(divEl)
             //if (!bingo) {
-                var span=document.createElement("span")
+                var span=document.createElement("div")
                 span.style.textAlign="center"
                 span.innerHTML='<p><label for="paintprog">Paint: </label><progress id="paintprog" value="0" max="100"> 0% </progress>'+
                     '&nbsp;&nbsp;&nbsp;&nbsp;<label for="bonusprog">Bonus: </label><progress id="bonusprog" value="0" max="100"> 0% </progress>'+
@@ -420,7 +422,7 @@ function round() {
         } else {
             //divEl=document.getElementsByTagName("div")[0]
             //divEl.innerHTML=caption("")
-            document.getElementsByTagName("h2")[0].innerHTML='Round '+roundno
+            document.getElementsByTagName("h2")[0].innerHTML=round_caption()//'Round '+roundno
         }
 }
 
@@ -435,7 +437,7 @@ function next_color() {
     if (color==0) {
         round()
     } else {
-        document.getElementsByTagName("h2")[0].innerHTML='Round '+roundno  //document.getElementsByTagName("div")[0].innerHTML = caption("")
+        document.getElementsByTagName("h2")[0].innerHTML=round_caption()//'Round '+roundno  //document.getElementsByTagName("div")[0].innerHTML = caption("")
     }
     set_iframe('c'+color);
     //document.body.style.backgroundColor = window.getComputedStyle(els[0]).backgroundColor;
@@ -477,10 +479,10 @@ if (new URL(location.href)/*URLSearchParams(location.href)*/.searchParams.get("t
 
     var audioctl=document.createElement("span")
     var tracks={
-        "ufo": "Ufo Speeding.mp3",
+        "ufo": "Ufo%20Speeding.mp3",
 	"rocket": "blast_off.mp3",
-        "spaceship":"ufo Slowing.mp3",
-        "astronaut":"Super Game Music - Badass Space Explorer (Demo).mp3"
+        "spaceship":"ufo%20Slowing.mp3",
+        "astronaut":"Super%20Game%20Music%20-%20Badass%20Space%20Explorer%20(Demo).mp3"
     }
     cardnm=window.location.href.substr(window.location.href.lastIndexOf('/') +1).replace(".html","")
     var audio_fn="audio/"+tracks[cardnm]

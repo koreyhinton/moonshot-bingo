@@ -1,5 +1,5 @@
 #+TITLE: How to play Moonshot Bingo
-#+HTML_HEAD_EXTRA: <style>*{font-family: Georgia,serif !important}</style>
+#+HTML_HEAD_EXTRA: <style type="text/css">*{font-family: Georgia,serif !important}a:link,a:active,a:hover,a:visited{color:#5BB2E0}</style>
 
 * How to start the game
 
@@ -65,16 +65,16 @@ If you don't feel good about your progress when you enter the bonus phase for a 
 You will gamble away all of your current progress for that color and then eliminate cells according to the pattern of the gambit.
 Take into account that after the gambit you will have limited time to re-paint afterwards if you are trying to complete it all in that 1 round.
 
-*** Grid Gambit
+*** Spots Gambit
 
-The grid gambit button will allow you to trade in current progress and then will automatically fill in according to a grid pattern for the current color.
-If you feel you'd be quick in shake painting this could require less time than ruler's gambit.
+The spots gambit button will allow you to trade in current progress and then will automatically fill in according to a spotted pattern for the current color.
+If you feel you'd be quick in shake painting this could require less time than pillar gambit.
 Be sure to be fast to finish off the remaining pixels.
 
-*** Ruler's Gambit
+*** Pillars Gambit
 
-The ruler gambit button will allow you to trade in current progress and then will automatically fill in according to a ruler pattern for the current color.
-If you have feel you'd have a steady hand to keep the cursor in a straight line the ruler gambit will require less time hunting for pixels than grid gambit.
+The pillars gambit button will allow you to trade in current progress and then will automatically fill in according to a pillar pattern for the current color.
+If you have feel you'd have a steady hand to keep the cursor in a straight line the pillar gambit will require less time hunting for pixels than grid gambit.
 Be sure to be fast to finish off the remaining pixels.
 
 ** Strategy Hints
@@ -84,6 +84,9 @@ If you are filling in the large background color you can just skip to the bonus 
 
 If you are close to completing the pixels and have difficulty finding the last ones use the winner bonuses to try to get them all finished off.
 A rogue or dead pixel may be very hard to see if it blends in with the pixels around it, so a winner's bonus can be crucial in helping reduce the number of rounds you have where you are just randomly painting in hopes you got them all.
+
+For a large number of densely packed pixels of the same color a good strategy would be to combine spots gambit and dead pixel winner bonus. First click the "Trade for Spots" button followed by "Dead Pixel" button (click this button as many times) until it can't fill in any more.
+The inner pixels will be dead pixels due to the filled-in spotted pattern of that color.
 
 * Rounds, Colors, Phases
 
