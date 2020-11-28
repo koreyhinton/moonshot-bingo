@@ -1,5 +1,9 @@
 # Sound Credits
 
+## Sound Effect Credits
+
+Author: NenadSimic. https://freesound.org/people/NenadSimic/sounds/171756/
+
 ## Music Credits
 
 Author: Eric Taylor. License: CC-BY. https://web.archive.org/web/20201122111404/https://www.reddit.com/r/gamedev/comments/2m48c2/royalty_free_music_pack_70_songs_ccby_updated/

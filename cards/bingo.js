@@ -206,8 +206,19 @@ function paint(e, eType) {//, eType='ev') {
 }
 
 function click_bingo(btn) {
+    aud=document.getElementsByTagName("audio")[0]
+    aud.removeEventListener('timeupdate', audio_loop)
+    aud.pause()
+    aud.src="audio/win.wav"
+    aud.currentTime=0
+    aud.play()
     set_iframe(null);
+    var img=document.createElement("img")
+    img.src="checkmark.png"
+    btn.parentNode.appendChild(img)
     btn.parentNode.removeChild(btn)
+    //var audioEl=document.getElementsByTagName("audio")[0]
+    //audioEl.pause()
 }
 
 function debug_bingo() {
@@ -243,6 +254,14 @@ function spanStyle(el){
     el.style.border = "none"//"3px solid lightgrey"
     el.style.padding ="8px"
     el.style.textAlign = "center"
+}
+
+function audio_loop() {
+    var buffer = .44
+    if (this.currentTime > this.duration - buffer) {
+        this.currentTime = 0
+        this.play()
+    }
 }
 
 function play() {
@@ -294,13 +313,13 @@ function play() {
     intervalId=setInterval(tick, 1000)
     //intervalId=setInterval(next_color, 13000)
     var audioEl=document.getElementsByTagName("audio")[0]
-    audioEl.addEventListener('timeupdate', function() {
+    audioEl.addEventListener('timeupdate', audio_loop/*function() {
         var buffer = .44
         if (this.currentTime > this.duration - buffer) {
             this.currentTime = 0
             this.play()
         }
-    });
+    }*/);
     audioEl.play();
 }
 
@@ -511,7 +530,16 @@ if (new URL(location.href)/*URLSearchParams(location.href)*/.searchParams.get("t
             }
         }
     }
-
+    var hm=document.createElement("a")
+    hm.href="../index.html"
+    hm.style.borderRadius="48px"
+    hm.style.border="3px solid #64626B"
+    hm.style.backgroundColor="#bdab9d"//"#e5e5e5"//"#71C6F4"
+    hm.innerHTML="<img src='icons/home.png' alt='home'>"
+    hm.style.position="absolute"
+    hm.style.top="8px"
+    hm.style.left="8px"
+    document.body.appendChild(hm)
 } else {
     linkEl=document.createElement("link")
     linkEl.type="text/css"

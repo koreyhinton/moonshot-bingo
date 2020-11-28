@@ -1,4 +1,5 @@
 #+TITLE: How to play Moonshot Bingo
+#+HTML_HEAD: <script>document.addEventListener('DOMContentLoaded', function() {var hm=document.createElement("a");hm.href="../index.html";hm.style.borderRadius="48px";hm.style.border="3px solid #64626B";hm.style.backgroundColor="#bdab9d";hm.innerHTML="<img src='../cards/icons/home.png' alt='home'>";hm.style.position="absolute";hm.style.top="8px";hm.style.left="8px";document.body.appendChild(hm);});</script>
 #+HTML_HEAD_EXTRA: <style type="text/css">*{font-family: Georgia,serif !important}a:link,a:active,a:hover,a:visited{color:#5BB2E0}</style>
 
 * How to start the game

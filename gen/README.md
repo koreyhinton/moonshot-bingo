@@ -25,3 +25,7 @@ Spaceship: https://www.needpix.com/photo/1667912/spaceship-cartoon-plane-rocket-
 UFO: https://www.needpix.com/photo/828075/ufo-alien-space-comic-object-universe
 
 Play button: https://www.stockio.com/free-icon/play-barker-icon
+
+Checkmark button: https://www.needpix.com/photo/336435/confirm-true-correct-free-pictures-free-photos-free-images-royalty-free
+
+Home button: https://www.stockio.com/free-icon/home-barker-icon
