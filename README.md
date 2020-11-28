@@ -58,20 +58,5 @@ git commit -m "audio file merge message"
 git clone -b main --single-branch https://github.com/koreyhinton/moonshot-bingo
 ```
 
-## Example: compose the full game in a temp branch
 
-```
-# bring down repo if needed
-git clone https://github.com/koreyhinton/moonshot-bingo
-
-# pull latest if needed
-git checkout main
-git pull origin main
-
-git checkout audio
-git pull origin audio
-
-git checkout -b temp # branching off of audio
-git merge main  # merging in audio
-```
 
