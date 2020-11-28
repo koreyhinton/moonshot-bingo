@@ -1,11 +1,32 @@
 # moonshot-bingo
 GitHub Game Off 2020 Game Jam Contribution - Moonshot Theme - Moonshot Bingo Game
 
+# screenshots
+<details>
+  <summary>game screenshots</summary>
+  <img src="https://github.com/koreyhinton/moonshot-bingo/blob/audio/docs/Capture_Home.PNG?raw=true" name="capture-astronaut">
+  <img src="https://github.com/koreyhinton/moonshot-bingo/blob/audio/docs/Capture_Astronaut.PNG?raw=true" name="capture-astronaut">
+  <img src="https://github.com/koreyhinton/moonshot-bingo/blob/audio/docs/Capture_Rocket.PNG?raw=true" name="capture-rocket">
+  <img src="https://github.com/koreyhinton/moonshot-bingo/blob/audio/docs/Capture_Spaceship.PNG?raw=true" name="capture-spaceship">
+  <img src="https://github.com/koreyhinton/moonshot-bingo/blob/audio/docs/Capture_UFO.PNG?raw=true" name="capture-ufo">
+  </details>
+
 # git workflows
 
 The 2 long-running branches are main and audio. Merging these branches is required to create the full game.
 
 The main branch has all the code and text assets while audio has non-text assets.
+
+## merging branches together
+
+To get the full game merge the main branch on top of audio, and override any changes conflicts in audio with main's changes:
+
+```
+git clone https://github.com/koreyhinton/moonshot-bingo moonshot-bingo__full
+git fetch origin
+git checkout audio
+git merge -X theirs main
+```
 
 ## Example: merge\* a text/code asset from the audio branch into the main branch (where it belongs)
 
