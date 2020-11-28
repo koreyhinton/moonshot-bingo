@@ -356,9 +356,11 @@ function tick() {
             node_class_replace(deactivatedText[0], "deactivated", "activated")//deactivatedText[0].classList.replace("deactivated", "activated")//.remove("deactivated")
             //winLoseText[i].classList.add("activated")
         }
-        bp.value+=(speedReQ[0] * Math.ceil(0.13*60.0))
+        //bp.value+=(speedReQ[0] * Math.ceil(0.13*60.0))
+        bp.value+=(speedReQ[0] * Math.ceil(100.0/22.0))
     } else {
-        progress.value+=(speedReQ[0] * Math.ceil(0.13*60.0))//(Math.floor(100/13))
+        //progress.value+=(speedReQ[0] * Math.ceil(0.13*60.0))//(Math.floor(100/13))
+        progress.value+=(speedReQ[0] * Math.ceil(100.0/22.0))//0.13*60.0))//(Math.floor(100/13))
     }
 }
 

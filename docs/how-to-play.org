@@ -31,11 +31,11 @@ Click the Bingo button when you are done to stop the time. The bingo button will
 
 * Bonuses and Gambits
 
-After about 13 seconds of playing the current color the bonus and gambit buttons will become activated.
+After about 22 seconds of playing the current color the bonus and gambit buttons will become activated.
 You may use these to try and improve your situation.
 You can also opt out of using these and just continue paint.
 
-The bonus phase will last the same amount of time as the paint phase (13 seconds).
+The bonus phase will last the same amount of time as the paint phase (22 seconds).
 Use the bonus and loser gambit buttons as many times as you'd like during the bonus phase.
 
 ** Winner's Bonuses
