@@ -19,10 +19,11 @@ The main branch has all the code and text assets while audio has non-text assets
 
 ## merging branches together
 
-To get the full game merge the main branch on top of audio, and override any changes conflicts in audio with main's changes:
+To get the full game merge the main branch on top of audio, and override any change conflicts in audio with main's changes:
 
 ```
 git clone https://github.com/koreyhinton/moonshot-bingo moonshot-bingo__full
+cd moonshot-bingo__full
 git fetch origin
 git checkout audio
 git merge -X theirs main
