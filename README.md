@@ -1,6 +1,8 @@
 # moonshot-bingo
 GitHub Game Off 2020 Game Jam Contribution - Moonshot Theme - Moonshot Bingo Game
 
+[Play game](https://koreyhinton.itch.io/moonshot-bingo)
+
 # screenshots
 <details>
   <summary>game screenshots</summary>
@@ -29,6 +31,12 @@ git checkout audio
 git merge -X theirs main
 ```
 
+## Example: checkout just the code for viewing (main branch only)
+
+```
+git clone -b main --single-branch https://github.com/koreyhinton/moonshot-bingo
+```
+
 ## Example: merge\* a text/code asset from the audio branch into the main branch (where it belongs)
 
 ```
@@ -52,11 +60,7 @@ git commit -m "audio file merge message"
 
 
 
-## Example: checkout just the code for viewing (main branch only)
 
-```
-git clone -b main --single-branch https://github.com/koreyhinton/moonshot-bingo
-```
 
 
 
